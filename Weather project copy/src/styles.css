@@ -1,0 +1,12 @@
+body {
+  color: #5b6275;
+}
+h1 {
+  font-size: 64px;
+}
+#currentCity {
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: x-large;
+}
+
