@@ -40,8 +40,10 @@ function displayTemperature(response) {
   console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
+  let descriptionElement = document.querySelector("#weatherDescription");
   document.getElementById("currentCity").innerHTML = city;
   document.querySelector("#currentTemperatureC").innerHTML = `${temperature}`;
+  descriptionElement.innerHTML = response.data.weather[0].description;
 }
 
 function showPosition(position) {
