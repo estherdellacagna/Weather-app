@@ -41,9 +41,11 @@ function displayTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
   let descriptionElement = document.querySelector("#weatherDescription");
+  let humidityElement = document.querySelector("#humidity");
   document.getElementById("currentCity").innerHTML = city;
   document.querySelector("#currentTemperatureC").innerHTML = `${temperature}`;
   descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
 }
 
 function showPosition(position) {
