@@ -32,10 +32,12 @@ function showCurrentCity(event) {
 function fetchCityWeather(city) {
   let apiKey = "535adbff4597f2b7f1f8f5bc7a5b73aa";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
+
   axios.get(`${url}&appid=${apiKey}`).then(displayTemperature);
 }
 
 function displayTemperature(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
   document.getElementById("currentCity").innerHTML = city;
