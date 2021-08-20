@@ -42,10 +42,13 @@ function displayTemperature(response) {
   let city = response.data.name;
   let descriptionElement = document.querySelector("#weatherDescription");
   let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+
   document.getElementById("currentCity").innerHTML = city;
   document.querySelector("#currentTemperatureC").innerHTML = `${temperature}`;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
 function showPosition(position) {
