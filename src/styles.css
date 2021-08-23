@@ -10,3 +10,6 @@ h1 {
   font-size: x-large;
 }
 
+#currentDay {
+  list-style: none;
+}
