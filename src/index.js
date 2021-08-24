@@ -46,7 +46,8 @@ function fetchCityWeather(city) {
 
 function displayTemperature(response) {
   console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
+  celsiusTemp = response.data.main.temp;
+  let temperature = Math.round(celsiusTemp);
   let city = response.data.name;
   let descriptionElement = document.querySelector("#weatherDescription");
   let humidityElement = document.querySelector("#humidity");
@@ -55,7 +56,7 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
 
   document.getElementById("currentCity").innerHTML = city;
-  document.querySelector("#currentTemperatureC").innerHTML = `${temperature}`;
+  document.querySelector("#currentTemperature").innerHTML = `${temperature}`;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
@@ -87,3 +88,18 @@ document
   .addEventListener("submit", showCurrentCity);
 
 navigator.geolocation.getCurrentPosition(showPosition);
+
+function displayFahrenheidTemperature(event) {
+  event.preventDefault();
+  let fahrenheidTemperature = (celsiusTemp * 9) / 5 + 32;
+
+  let temperatureElement = document.querySelector("#currentTemperatureC");
+  temperatureElement.innerHTML = Math.round(fahrenheidTemperature);
+}
+
+let fahrenheidLink = document.querySelector("#currentTemperatureF");
+fahrenheidLink.addEventListener("click", displayFahrenheidTemperature);
+
+let celsiusTemp = null;
+
+search("New York");
