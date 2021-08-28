@@ -89,13 +89,16 @@ document
 
 function displayFahrenheidTemperature(event) {
   event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheidLink.classList.add("active");
   let fahrenheidTemperature = (celsiusTemp * 9) / 5 + 32;
-
   let temperatureElement = document.querySelector("#currentTemperature");
   temperatureElement.innerHTML = Math.round(fahrenheidTemperature);
 }
 function displayCelsiusTemperature(event) {
   event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheidLink.classList.remove("active");
   let temperatureElement = document.querySelector("#currentTemperature");
   temperatureElement.innerHTML = Math.round(celsiusTemp);
 }

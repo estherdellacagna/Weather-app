@@ -13,3 +13,11 @@ h1 {
 #currentDay {
   list-style: none;
 }
+
+#currentTemperatureC.active {
+  color: #5b6275;
+  cursor: default;
+}
+#currentTemperatureC.active:hover{
+  text-decoration: none;
+}
