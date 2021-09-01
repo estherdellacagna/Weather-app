@@ -14,11 +14,12 @@ h1 {
   list-style: none;
 }
 
-#currentTemperatureC.active {
+#currentTemperatureC {
   color: #5b6275;
   cursor: default;
+  text-decoration: none;
 }
-#currentTemperatureC.active:hover {
+#currentTemperatureC:hover {
   text-decoration: none;
 }
 .weather-forecast {
