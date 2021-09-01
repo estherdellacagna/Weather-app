@@ -42,7 +42,8 @@ function fetchCityWeather(city) {
   axios.get(`${url}&appid=${apiKey}`).then(displayTemperature);
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily)
   let forecastElement = document.querySelector("#forecast");
   let days = ["Thu", "Fri", "Sat", "Sun"];
   let forecastHTML = `<div class="row">`;
@@ -51,7 +52,6 @@ function displayForecast() {
     forecastHTML =
       forecastHTML +
       `
-      
         <div class="col-2">
           <div class="weather-forecast-date">${day}</div>
           <img src="src/img/sun.png" width="42" /> 
@@ -60,12 +60,19 @@ function displayForecast() {
             <span class="weather-forecast-temperature-min"> 12° </span>
           </div>
         </div>
-      </div>
     
   `;
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates){
+  console.log(coordinates);
+  let apiKey = "535adbff4597f2b7f1f8f5bc7a5b73aa";
+  let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=metric`
+console.log(apiUrl);
+axios.get(apiUrl).then(displayForecast) ;
 }
 
 function displayTemperature(response) {
@@ -90,6 +97,8 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast (response.data.coord);
 }
 
 function showPosition(position) {
@@ -138,4 +147,4 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 let celsiusTemp = null;
 
 fetchCityWeather("New York");
-displayForecast();
+
