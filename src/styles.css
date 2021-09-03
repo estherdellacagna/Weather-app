@@ -1,13 +1,24 @@
 body {
   color: #5b6275;
-}
+background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);}
 h1 {
   font-size: 64px;
+  margin-top: 60px;
 }
+small{
+  font-size: 18px;
+}
+
+#weatherDescription, #windHumidity, #weather-temperature{
+    font-size: 18px;
+
+}
+
 #currentCity {
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.2;
-  font-size: x-large;
+  font-size: 30px;
+  
 }
 
 #currentDay {
@@ -28,13 +39,20 @@ h1 {
 }
 
 .weather-forecast-date {
-  font-size: 16px;
+  font-size: 20px;
   color: black;
 }
 .weather-forecast-temperature-min {
   opacity: 0.8;
 }
 
+.weather-forecast-temperature-max {
+  color: black;
+}
+
 .weather-forecast-temperatures {
-  font-size: 14px;
+  font-size: 16px;
+}
+footer{
+  margin-top: 20px;
 }
